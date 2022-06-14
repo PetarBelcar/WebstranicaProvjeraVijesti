@@ -1,0 +1,72 @@
+<html lang="hr">
+    <head>
+        <title>Dokumentacija</title>
+        <meta charset="utf8">
+        <link rel="stylesheet" href="CSS/generalni.css">
+
+        <link rel="stylesheet" href="CSS/dokumentacija.css">
+    </head>
+
+    <body>
+        <header>
+
+        </header>
+
+        <nav>
+            <a href="index.php">Početna stranica</a>
+            <a href="vijesti.php">Vijesti</a>
+
+            <a href="dokumentacija.html">Dokumentacija</a>
+            <a href="o_autoru.html">O autoru</a>
+        </nav>
+
+        <section>
+            <div id="navigacijskiDijagrami">
+                <h4>Navigacijski dijagrami</h4>
+                <div>
+                    <a href="Slike/ND_NeregistriraniKorisnik.drawio.png"><img src="Slike/ND_NeregistriraniKorisnik.drawio.png" alt="Navigacijski dijagram za neregistrirane korisnike"></a>
+                    <div>
+                        <p>Neregistrirani korisnici kada prvi put doću na web stranicu moraju prihvatiti uvjete korištenja, kad ih prihvate imaju mogućnost registracije te bi nakon uspješne aktivacije postali registrirani korisnici. Mogu pregledavati odobrene vijesti u obliku galerije te mogu iste vijesti istovremeno filtrirati po kategoriji, vremenu objave i broju pretraga.</p>
+                    </div>
+                </div>
+                <div>
+                    <a href="Slike/ND_RegistriraniKorisnik.drawio.png"><img src="Slike/ND_RegistriraniKorisnik.drawio.png" alt="Navigacijski dijagram za registrirane korisnike"></a>
+                    <div>
+                        <p>Registrirani korisnik ima sve mogućnosti neregistriranog korisnika. Može se također prijaviti sa svojim korisničkim imenom i lozinkom nakon čega mu se otvaraju mogućnosti kreiranja vijesti koje, ako budu odobrene, budu ovjavljene na stranici te bi ih ostali korisnici mogli čitati. Vide i vijesti koje su oni objavili ili one u kojima su navedeni kao autor. Vijesti koje objave mogu ažurirati ako su one u stanju dorade te mogu pregledavati recenzije svojih vijesti. Mogu i vidjeti podatke i statistike o svojim vijestima. Također vide popis kategorija u kojima su blokira te razlog blokiranja. Dostupni su im također podatci o autoru te projektna dokumentacija.</p>
+                    </div>
+                </div>
+                <div>
+                    <a href="Slike/ND_Moderatora.drawio.png"><img src="Slike/ND_Moderatora.drawio.png" alt="Navigacijski dijagram za moderatora"></a>
+                    <div>
+                        <p>Moderatori imaju sve mogućnosti registriranih korisnika. Imaju popis registriranih korisnika prema kategoriji te statistike popue broja predanih vijest, broja odobrenih i odbijenih vijesti. Primarna funkcija moderatora je recenziranje vijesti koje su im dodjeljene. Imaju popis prihvaćenih vijesti u kategorijama koje su njima dodjeljene, popis odbijenih vijesti te njihovog kreatora i autore koje može od ovud blokirati. Također imaju popis vijest koje su njima dodjeljenje za recenziju te im se klikom na vijest otavara forma za recenziju u koju opisuju podatke vezeane uz recenziju te tagove koji opisuju vijest.</p> 
+                    </div>
+                </div>
+                <div>
+                    <a href="Slike/ND_Administrator.drawio.png"><img src="Slike/ND_Administrator.drawio.png" alt="Navigacijski dijagram za administratora"></a>
+                    <div>
+                        <p>Administratori imaju sve mogućnosti moderatora. Administratori imaju popis kategorija vijesti te mogu moderatorima dodjeliti bilo koji broj kategorija. Administratori koji su kreatori kategorija mogu moderatorima koji imaju kategoriju dodjeliti recenziju vijesti, te se može izmjeniti moderator kojemu je recenzija dodjeljena. Mogu vidjeti popis blokiranih korisnika te mogu blokirane korisnike deblokirati. Administratori mogu konfigurirati aplikaciju, te kada su konfiguraciej u tijeku webstranica nije dostupna, i resetati prihvaćenje uvjeta korištenja. Administratori imaju CRUD kontrole te im je dostupan dnevnik u kojem mogu vidjeti radnje koje su korisnici obavili.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="eraModel">
+                <h4>ERA model</h4>
+                <a href="Slike/ERAModel_pbelcar.png"><img src="Slike/ERAModel_pbelcar.png"></a>
+                <div>
+                    <p>U središtu era modela se nalazi relacijia "Korisnik" u kojoj se nalaze svi registrirani korisnici, moderatori i administratori.
+                        Katagorija korisnika određena je sa vanjskim kljucem "KategorijaKorisnika_id" na relaciju "KategorijaKorisnika, u kojoj su smješteni zapisi za regisriranog korisnika, moderatora i administratora.</p>
+                    <p>Za dodatno opisivanje korisnika koriste se relacije "Sesija", koja nam govori kada je korisnik ulogiran i prihvatio uvjete korištenja te se isti podatak koristi kada se određuje kad će sesija isteći, i relacije "ZakljcaniKorisnik" koji nam govori je li korisnikov racun zakljucani što bi uputilo administratora da provjeri sa korisnikom zašto je došlo do neuspješne prijave 3 puta za redom.</p>
+                    <p>Relacija "KategorijaVijesti" sadrži nazive i opise katogorija vijesti koje su dostupne na web stranici. Ona je povezana sa relacijom "Korisnik" sa asocijativnim relacijama "ModeratorKategorije", koja nam govori koji moderatori mogu recenzirati predane vijesti, i "AdministratorKategorije", koje nam govori koji administrator je kreirao kategoriju vijesti te ima pravo dodjeljivanja kategorije moderatorima. Ovdje je još relacija "BlokiraniKorisnik" koja je također asocijativna te nam govori kojem je korisniku onemogućeno predavanje vijesti u kojoj kategoriji te koji moderator je blokrao korisnika, zašto i kada. </p>
+                    <p>Druga najvažnija relacija je "Vijest". U njoj su sadržani podatci o predanoj vijesti, poput naslova, texta, izvora, slika i datum i virjeme predaje. Relacija "Autor" nam govori koji korisnik je naved kao autor u predanoj vijesti. Relacija "VideoAudio" sadrži video i audio filove povezana sa vijesti. Relaciaj "ProsleVerzijeVijest" sadrži podatke o vijesti ako je ona u jednom trenutku bila ažurirana za svako pojedinacno ažuriranje. </p>
+                    <p>Za vijest se automatski pri predaji kreira entitet u relaciji "Recenzija", no pri kreaciji se nezna koji administrator će kojem moderatoru dodjeliti recenziju. Stanje recenziej se odreuje putem vanjskog ključa na relaciju "StanjeRecenzije" u kojoj se nalaze imena i opisi mogućih stanja recenzija. Tu se nalazi i relacija "Pogreške" koja je s vanjsim ključem povezana sa relacijom "Recenzija" koja nam govori koje se greške nalaze u predanoj vijesti. Svaka greška također ima vanjski knjuč na relaciju "VrsteGreške" koja nam govori koje je vrste greška.</p>
+                    <p>Relacija Cookie je šifrarnik koji sadži sve dostupne cookieje i opise njihove svrhe. Ova relacija je povezana sa relacijom korisnik sa asocijativnom relacijom Cookie_has_Korisnik koja označava da je dani korisnik izabrao mogućnost korištenja dano cookiea.</p>
+                    <p>Na kraju imamo relaciju "Dnevnik" u koju se svrstavaju sve akcije koje korisnici podnose poput predaje vijesti, ažuriranja, recenziranja i blokiranja. Vrsta akcije se određuej prema vanjskom ključuna na relaciju "VrstaRadnje" u kojoj se nalazi vrsta radnje i opcionalni opis.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+
+        </footer>
+    </body>
+</html>

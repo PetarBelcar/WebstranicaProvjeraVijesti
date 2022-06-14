@@ -1,0 +1,23 @@
+body
+{
+    background-color: #666667;
+    color: white;
+}
+
+nav 
+{
+    background-color: #8B8B8C;
+}
+
+nav > a
+{
+    color: #E89611;
+    background-color: #1C4EAA;
+    padding: 3px;
+    border: 2px black solid;
+}
+
+nav >  :hover
+{
+    background-color: black;
+}

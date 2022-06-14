@@ -1,0 +1,10 @@
+section
+{
+    width: 80%;
+    margin-left: 10%;
+}
+
+section > #divUvjetiText
+{
+    text-align: justify;
+}

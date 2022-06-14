@@ -1,0 +1,30 @@
+#navigacijskiDijagrami
+{
+    margin: auto;
+    width: 80%;
+    display: block;
+}
+
+a > img
+{
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+}
+
+#navigacijskiDijagrami > div > div > p
+{
+    text-align: justify;
+}
+
+#eraModel
+{
+    margin: auto;
+    width: 80%;
+    display: block;
+}
+
+#eraModel > div > p
+{
+    text-align: justify;
+}
